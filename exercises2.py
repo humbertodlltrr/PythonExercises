@@ -27,13 +27,10 @@ sum_series(10) -> 30
 
 8. Write a Python program to calculate the harmonic sum of n-1. 
 Note: The harmonic sum is the sum of reciprocals of the positive integers. 
-Example : 
-harmonic series
 
 9. Write a Python program to calculate the geometric sum of n-1. 
 Note: In mathematics, a geometric series is a series with a constant ratio between successive terms. 
-Example : 
-harmonic series
+
 
 10. Write a Python program to calculate the value of 'a' to the power 'b'.
 Test Data : 
@@ -102,3 +99,83 @@ def factorial(n):
     if(n == 0):
         return 1
     return n * factorial(n-1)
+
+#5. Write a Python program to solve the Fibonacci sequence using recursion.
+def fib(n):
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fib(n-1) + fib(n-2)
+
+#Dynamic
+def fibd(n):
+    fibArr = [0,1,1]
+    if n < len(fibArr):
+        return fibArr[n]
+    else:
+        while n >= len(fibArr):
+            fibArr.append(fibArr[len(fibArr)-1] + fibArr[len(fibArr)-2])
+        return fibArr[n]
+
+#6. Write a Python program to get the sum of a non-negative integer. 
+#Test Data: 
+#sumDigits(345) -> 12
+#sumDigits(45) -> 9
+
+def sumDigits(num):
+    if str(num)[1:] == "":
+        return num
+    return int(str(num)[0]) + sumDigits(int(str(num)[1:]))
+
+#7. Write a Python program to calculate the sum of the positive integers of n+(n-2)+(n-4)... (until n-x =< 0). 
+#Test Data: 
+#sum_series(6) -> 12
+#sum_series(10) -> 30
+
+def sum_series(num):
+    if num > 0:
+        return num + sum_series(num-2)
+    return 0
+
+#8. Write a Python program to calculate the harmonic sum of n-1. 
+#Note: The harmonic sum is the sum of reciprocals of the positive integers. 
+
+def harmonic_sum(n):
+    if n < 2:
+        return 1
+    return 1/(n) + harmonic_sum(n-1)
+
+#9. Write a Python program to calculate the geometric sum of n-1. 
+#Note: In mathematics, a geometric series is a series with a constant ratio between successive terms. 
+def geometric_sum(n):
+    a = 1
+    ratio = 1/2
+    if n < 2:
+        return a * ratio
+    return (a * ratio**n) + geometric_sum(n-1)
+
+#10. Write a Python program to calculate the value of 'a' to the power 'b'.
+#Test Data : 
+#(power(3,4) -> 81
+def power(a,b):
+    if b < -1:
+        return 1/a * power(a,b+1)
+    elif b == -1:
+        return 1/a
+    elif b == 0:
+        return 1
+    elif b == 1:
+        return a
+    return a * power(a,b-1)
+
+
+#11. Write a Python program to find  the greatest common divisor (gcd) of two integers.
+def gcd(a,b):
+    if(a == 0 or b == 0):
+        return abs(max(a,b))
+    elif(a%min(a,b) == b%min(a,b)):
+        return abs(min(a,b))
+    else:
+        return gcd(max(a,b)%min(a,b),min(a,b))

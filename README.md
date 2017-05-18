@@ -8,4 +8,4 @@ http://codingbat.com/python
 
 http://www.w3resource.com/python-exercises/data-structures-and-algorithms/python-recursion.php
 
-http://www.w3resource.com/python-exercises/data-structures-and-algorithms/python-data-structure.php
+https://nyu-cds.github.io/courses/exercises/

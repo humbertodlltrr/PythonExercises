@@ -389,6 +389,6 @@ def truncPrimes():
             
     
 start = time.time()
-#function
+#functions
 end = time.time()
 print(end - start)
